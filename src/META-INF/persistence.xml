@@ -6,9 +6,9 @@
 		<class>entities.UserEmitterReceiver</class>
 	    <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5431/postgres" /> <!-- BD Mane -->
-            <property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User --> 
-            <property name="javax.persistence.jdbc.password" value="EInvoice123" /> 
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-83-23-91.compute-1.amazonaws.com:5432/d27uk74u0bqcbs" /> <!-- BD Mane -->
+            <property name="javax.persistence.jdbc.user" value="ukzhldcprudyjz" /> <!-- DB User --> 
+            <property name="javax.persistence.jdbc.password" value="32e177c1e33e7b7ff78270bee9f668469090e646f445e57eb4dd9b5a106edd98" /> 
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> <!-- DB Dialect -->
             <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
