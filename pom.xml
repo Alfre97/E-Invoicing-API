@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.e-invoicing.api</groupId>
   <artifactId>E-Invoicing-API</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.25-SNAPSHOT</version>
   <dependencies>
 	  	<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -41,7 +41,18 @@
 		    <artifactId>persistence-api</artifactId>
 		    <version>1.0.2</version>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>eclipselink</artifactId>
+		    <version>2.7.1</version>
+		</dependency>	
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>	
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
