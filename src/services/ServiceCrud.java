@@ -19,7 +19,7 @@ public abstract class ServiceCrud<E> {
 		em.getTransaction().begin();
 		em.persist(obj);
 		em.getTransaction().commit();
-		stopEntityManagerFactory();
+		//stopEntityManagerFactory();
 
 	}
 
@@ -72,13 +72,13 @@ public abstract class ServiceCrud<E> {
 		if (obj != null) {
 			String jpql = "SELECT t FROM " + obj.getClass().getSimpleName() + " t";
 			List<E> lista = (List<E>) em.createQuery(jpql, obj.getClass()).getResultList();
-			stopEntityManagerFactory();
+			//stopEntityManagerFactory();
 			if (lista != null) {
 				return lista;
 			} else
 				return null;
 		} else
-			stopEntityManagerFactory();
+			//stopEntityManagerFactory();
 		return null;
 
 	}
@@ -89,7 +89,7 @@ public abstract class ServiceCrud<E> {
 
 			try {
 
-				entityManagerFactory = Persistence.createEntityManagerFactory("Factura_Digital_JPA");
+				entityManagerFactory = Persistence.createEntityManagerFactory("E-Invoicing-API");
 
 				em = entityManagerFactory.createEntityManager();
 

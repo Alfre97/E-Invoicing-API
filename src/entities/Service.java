@@ -9,10 +9,10 @@ import javax.persistence.Id;
 @Entity
 public class Service {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(nullable=false, name="lineNumber")
-	private String lineNumber;
+	private String lineNumber;	
 	@Column(nullable=false, name="codeType")
 	private String codeType;
 	@Column(nullable=false, name="code")
