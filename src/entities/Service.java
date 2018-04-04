@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -38,7 +39,8 @@ public class Service {
 	private String discountNature;
 	@Column(nullable=false, name="subTotal")
 	private String subTotal;
-	@OneToMany(mappedBy="service")
+	@OneToMany
+	@JoinColumn(name="serviceId", referencedColumnName="id")
 	List<Tax> taxList;
 	@Column(nullable=false, name="total")
 	private String total;

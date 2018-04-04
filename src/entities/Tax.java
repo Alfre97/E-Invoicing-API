@@ -2,12 +2,9 @@ package entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Tax {
@@ -19,9 +16,8 @@ public class Tax {
 	private String code;
 	@Column(nullable=true, name="taxTotal")
 	private String taxTotal;
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(nullable=true, name="serviceId")
-	private Service service;
+	@Column(nullable=true, name="serviceId")
+	private Integer serviceId;
 	@Column(nullable=false, name="rate")
 	private String rate;
 	
@@ -41,14 +37,14 @@ public class Tax {
 	
 	public Tax() {}
 
-	public Tax(Integer id, String code, String taxTotal, Service service, String rate, String date,
+	public Tax(Integer id, String code, String taxTotal, Integer serviceId, String rate, String date,
 			String taxExonarated, String institutionName, String documentNumber, String purchasePercentage,
 			String documentType) {
 		super();
 		this.id = id;
 		this.code = code;
 		this.taxTotal = taxTotal;
-		this.service = service;
+		this.serviceId = serviceId;
 		this.rate = rate;
 		this.date = date;
 		this.taxExonarated = taxExonarated;
@@ -82,12 +78,12 @@ public class Tax {
 		this.taxTotal = taxTotal;
 	}
 
-	public Service getService() {
-		return service;
+	public Integer getServiceId() {
+		return serviceId;
 	}
 
-	public void setService(Service service) {
-		this.service = service;
+	public void setServiceId(Integer serviceId) {
+		this.serviceId = serviceId;
 	}
 
 	public String getRate() {
