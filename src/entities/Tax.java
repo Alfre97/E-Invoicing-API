@@ -17,7 +17,7 @@ public class Tax {
 	private Integer id;
 	@Column(nullable=false, name="code")
 	private String code;
-	@Column(nullable=false, name="taxTotal")
+	@Column(nullable=true, name="taxTotal")
 	private String taxTotal;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(nullable=true, name="serviceId")
@@ -28,8 +28,8 @@ public class Tax {
 	//Exoneration data
 	@Column(nullable=false, name="date")
 	private String date;
-	@Column(nullable=false, name="tax")
-	private String tax;
+	@Column(nullable=true, name="taxExonarated")
+	private String taxExonarated;
 	@Column(nullable=false, name="institutionName")
 	private String institutionName;
 	@Column(nullable=false, name="documentNumber")
@@ -41,8 +41,9 @@ public class Tax {
 	
 	public Tax() {}
 
-	public Tax(Integer id, String code, String taxTotal, Service service, String rate, String date, String tax,
-			String institutionName, String documentNumber, String purchasePercentage, String documentType) {
+	public Tax(Integer id, String code, String taxTotal, Service service, String rate, String date,
+			String taxExonarated, String institutionName, String documentNumber, String purchasePercentage,
+			String documentType) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -50,7 +51,7 @@ public class Tax {
 		this.service = service;
 		this.rate = rate;
 		this.date = date;
-		this.tax = tax;
+		this.taxExonarated = taxExonarated;
 		this.institutionName = institutionName;
 		this.documentNumber = documentNumber;
 		this.purchasePercentage = purchasePercentage;
@@ -105,12 +106,12 @@ public class Tax {
 		this.date = date;
 	}
 
-	public String getTax() {
-		return tax;
+	public String getTaxExonarated() {
+		return taxExonarated;
 	}
 
-	public void setTax(String tax) {
-		this.tax = tax;
+	public void setTaxExonarated(String taxExonarated) {
+		this.taxExonarated = taxExonarated;
 	}
 
 	public String getInstitutionName() {
