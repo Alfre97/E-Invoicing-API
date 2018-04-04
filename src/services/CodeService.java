@@ -2,9 +2,9 @@ package services;
 
 import java.io.Serializable;
 
-import entities.Service;
+import entities.Code;
 
-public class ServiceService extends ServiceCrud<Service> implements Serializable{
+public class CodeService extends ServiceCrud<Code> implements Serializable{
 
 	/**
 	 * 
@@ -12,3 +12,5 @@ public class ServiceService extends ServiceCrud<Service> implements Serializable
 	private static final long serialVersionUID = 1L;
 
 }
+
+

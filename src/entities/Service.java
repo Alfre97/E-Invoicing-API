@@ -1,10 +1,13 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Service {
@@ -13,10 +16,8 @@ public class Service {
 	private Integer id;
 	@Column(nullable=false, name="lineNumber")
 	private String lineNumber;	
-	@Column(nullable=false, name="codeType")
-	private String codeType;
-	@Column(nullable=false, name="code")
-	private String code;
+	@OneToMany(mappedBy="service")
+	List<Code> codeList;
 	@Column(nullable=false, name="amount")
 	private String amount;
 	@Column(nullable=false, name="unitOfMeasurementType")
@@ -33,23 +34,25 @@ public class Service {
 	private String totalAmount;
 	@Column(nullable=false, name="discount")
 	private String discount;
+	@Column(nullable=false, name="discountNature")
+	private String discountNature;
 	@Column(nullable=false, name="subTotal")
 	private String subTotal;
+	@OneToMany(mappedBy="service")
+	List<Tax> taxList;
 	@Column(nullable=false, name="total")
 	private String total;
 	
-	public Service() {
-		
-	}
+	public Service() {}
 
-	public Service(Integer id, String lineNumber, String codeType, String code, String amount,
-			String unitOfMeasurementType, String unitOfMeasurementName, String comercialUnitOfMeasurement,
-			String detail, String priceByUnit, String totalAmount, String discount, String subTotal, String total) {
+	public Service(Integer id, String lineNumber, List<Code> codeList, String amount, String unitOfMeasurementType,
+			String unitOfMeasurementName, String comercialUnitOfMeasurement, String detail, String priceByUnit,
+			String totalAmount, String discount, String discountNature, String subTotal, List<Tax> taxList,
+			String total) {
 		super();
 		this.id = id;
 		this.lineNumber = lineNumber;
-		this.codeType = codeType;
-		this.code = code;
+		this.codeList = codeList;
 		this.amount = amount;
 		this.unitOfMeasurementType = unitOfMeasurementType;
 		this.unitOfMeasurementName = unitOfMeasurementName;
@@ -58,10 +61,11 @@ public class Service {
 		this.priceByUnit = priceByUnit;
 		this.totalAmount = totalAmount;
 		this.discount = discount;
+		this.discountNature = discountNature;
 		this.subTotal = subTotal;
+		this.taxList = taxList;
 		this.total = total;
 	}
-
 
 	public Integer getId() {
 		return id;
@@ -79,20 +83,12 @@ public class Service {
 		this.lineNumber = lineNumber;
 	}
 
-	public String getCodeType() {
-		return codeType;
+	public List<Code> getCodeList() {
+		return codeList;
 	}
 
-	public void setCodeType(String codeType) {
-		this.codeType = codeType;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
+	public void setCodeList(List<Code> codeList) {
+		this.codeList = codeList;
 	}
 
 	public String getAmount() {
@@ -159,12 +155,28 @@ public class Service {
 		this.discount = discount;
 	}
 
+	public String getDiscountNature() {
+		return discountNature;
+	}
+
+	public void setDiscountNature(String discountNature) {
+		this.discountNature = discountNature;
+	}
+
 	public String getSubTotal() {
 		return subTotal;
 	}
 
 	public void setSubTotal(String subTotal) {
 		this.subTotal = subTotal;
+	}
+
+	public List<Tax> getTaxList() {
+		return taxList;
+	}
+
+	public void setTaxList(List<Tax> taxList) {
+		this.taxList = taxList;
 	}
 
 	public String getTotal() {
@@ -174,5 +186,4 @@ public class Service {
 	public void setTotal(String total) {
 		this.total = total;
 	}
-	
 }
